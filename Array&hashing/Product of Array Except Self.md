@@ -38,8 +38,34 @@ class Solution:
 
 
 ##solution2: time:o(n) space:o(1)
+#note: using right keeps track of multiplication
 
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
 
+        #divide into two parts
+        #first part is left hand side multiplication
+        #second part is right hand side multiplication
+
+        result = [1]*len(nums)
+        
+        for i in range(len(nums)):
+            if i == 0:
+                continue
+            
+            result[i] = result[i-1]*nums[i-1]
+        
+        #original [1,2,3,4]
+        #now we have [1,1,2,6]
+
+        
+        #need [24,12,8,6]
+        right = 1
+        for j in reversed(range(len(nums))):
+            result[j] = result[j]*right
+            right = nums[j]*right
+        
+        return result
 
 
 
