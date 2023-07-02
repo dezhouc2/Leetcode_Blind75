@@ -1,4 +1,4 @@
 # Leetcode_Blind75
 
-## Linkedlist:
-  ### fast and slow pointers:
+## 数据结构
+  # 链表
